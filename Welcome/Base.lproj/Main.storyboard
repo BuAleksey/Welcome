@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -31,16 +32,15 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9rS-Ga-dC8">
-                                <rect key="frame" x="172" y="431" width="70" height="34.5"/>
+                                <rect key="frame" x="172" y="388" width="70" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Log in"/>
                                 <connections>
-                                    <action selector="logInTaped" destination="BYZ-38-t0r" eventType="touchUpInside" id="BuB-1c-DfL"/>
                                     <segue destination="IrU-YD-mfg" kind="presentation" modalPresentationStyle="fullScreen" id="liJ-kd-xOt"/>
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="66" translatesAutoresizingMaskIntoConstraints="NO" id="dYU-ua-HAD">
-                                <rect key="frame" x="30" y="505.5" width="354" height="28.5"/>
+                                <rect key="frame" x="30" y="452.5" width="354" height="28.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DT1-Y6-Mca">
                                         <rect key="frame" x="0.0" y="0.0" width="144" height="28.5"/>
@@ -69,12 +69,12 @@
                         <color key="backgroundColor" red="0.81332376699999998" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="QEZ-xp-Ivs" secondAttribute="trailing" constant="60" id="57V-xX-xbg"/>
-                            <constraint firstItem="9rS-Ga-dC8" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="Ngn-An-7kU"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="dYU-ua-HAD" secondAttribute="trailing" constant="30" id="XPl-6k-Ldg"/>
+                            <constraint firstItem="9rS-Ga-dC8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="YgW-zR-VbC"/>
                             <constraint firstItem="dYU-ua-HAD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="Z5K-Eo-9N3"/>
-                            <constraint firstItem="9rS-Ga-dC8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="br8-0s-eHO"/>
-                            <constraint firstItem="dYU-ua-HAD" firstAttribute="top" secondItem="9rS-Ga-dC8" secondAttribute="bottom" constant="40" id="f0g-Wv-zQa"/>
+                            <constraint firstItem="dYU-ua-HAD" firstAttribute="top" secondItem="9rS-Ga-dC8" secondAttribute="bottom" constant="30" id="f0g-Wv-zQa"/>
                             <constraint firstItem="QEZ-xp-Ivs" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="60" id="rFo-SA-F0M"/>
+                            <constraint firstItem="9rS-Ga-dC8" firstAttribute="top" secondItem="QEZ-xp-Ivs" secondAttribute="bottom" constant="100" id="t3d-DR-5c2"/>
                             <constraint firstItem="QEZ-xp-Ivs" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="150" id="yZu-Cg-VbN"/>
                         </constraints>
                     </view>
@@ -96,8 +96,8 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5r7-21-dgZ">
-                                <rect key="frame" x="156.5" y="188" width="101" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <rect key="frame" x="151" y="188" width="112.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -108,7 +108,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UPw-Uq-lfP">
-                                <rect key="frame" x="166" y="430.5" width="82" height="35"/>
+                                <rect key="frame" x="166" y="422" width="82" height="34.5"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="tinted" title="Log out"/>
                                 <connections>
@@ -123,7 +123,7 @@
                             <constraint firstItem="UPw-Uq-lfP" firstAttribute="centerX" secondItem="v2D-YF-ZUq" secondAttribute="centerX" id="SeN-gq-bjC"/>
                             <constraint firstItem="5r7-21-dgZ" firstAttribute="centerX" secondItem="v2D-YF-ZUq" secondAttribute="centerX" id="T3b-7Q-hur"/>
                             <constraint firstItem="My6-4X-u7T" firstAttribute="top" secondItem="5r7-21-dgZ" secondAttribute="bottom" constant="40" id="enI-iA-pN0"/>
-                            <constraint firstItem="UPw-Uq-lfP" firstAttribute="centerY" secondItem="v2D-YF-ZUq" secondAttribute="centerY" id="ise-Dn-92f"/>
+                            <constraint firstItem="UPw-Uq-lfP" firstAttribute="top" secondItem="My6-4X-u7T" secondAttribute="bottom" constant="80" id="uPi-vg-opC"/>
                             <constraint firstItem="5r7-21-dgZ" firstAttribute="top" secondItem="ohR-un-lTD" secondAttribute="top" constant="140" id="yWh-bi-bDV"/>
                         </constraints>
                     </view>

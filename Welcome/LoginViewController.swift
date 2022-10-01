@@ -29,16 +29,17 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func logInTaped() {
-    }
-    
     @IBAction func forgotUserNameTaped() {
+        showAlert(with: "Remind", and: "Your user name is User")
     }
     
     @IBAction func forgotPasswordTaped() {
+        showAlert(with: "Remind", and: "Your password is Password")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
+        userNameTF.text = ""
+        passwordTF.text = ""
     }
 }
 
