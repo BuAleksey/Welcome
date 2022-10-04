@@ -9,6 +9,7 @@ import UIKit
 
 class AboutMeViewController: UIViewController {
     
+    @IBOutlet var photoImage: UIImageView!
     @IBOutlet var name: UILabel!
     @IBOutlet var placeOfWork: UILabel!
     @IBOutlet var profession: UILabel!
@@ -27,6 +28,9 @@ class AboutMeViewController: UIViewController {
     }
     
     private func setupScreen() {
+        title = user.person.name
+        photoImage.image = UIImage(named: user.person.photo)
+        photoImage.layer.cornerRadius = photoImage.frame.width / 2
         name.text = user.person.name
         placeOfWork.text = user.person.plaseOfWork
         profession.text = user.person.profession

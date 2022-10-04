@@ -205,12 +205,21 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="H7t-gr-QO7">
+                                <rect key="frame" x="110" y="112.5" width="100" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="100" id="bvK-eX-bfT"/>
+                                    <constraint firstAttribute="width" constant="100" id="zgY-A0-Ij6"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="s5o-wP-VVu"/>
                         <color key="backgroundColor" red="0.81332376699999998" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="H7t-gr-QO7" firstAttribute="top" secondItem="aHA-Z7-bTF" secondAttribute="topMargin" constant="20" id="68D-Uq-0MM"/>
                             <constraint firstItem="0SR-Uf-qXO" firstAttribute="leading" secondItem="s5o-wP-VVu" secondAttribute="leading" constant="16" id="ApS-Yp-38U"/>
                             <constraint firstItem="0SR-Uf-qXO" firstAttribute="centerY" secondItem="aHA-Z7-bTF" secondAttribute="centerY" id="kIW-zm-bdd"/>
+                            <constraint firstItem="H7t-gr-QO7" firstAttribute="centerX" secondItem="aHA-Z7-bTF" secondAttribute="centerX" id="xK2-h4-tzV"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="About me" id="7Oe-QX-UJF">
@@ -222,6 +231,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="name" destination="sdz-2o-K4J" id="6GH-Zp-aaz"/>
+                        <outlet property="photoImage" destination="H7t-gr-QO7" id="qhK-Xr-vC0"/>
                         <outlet property="placeOfWork" destination="2OH-Sy-MyM" id="ZII-hK-wbO"/>
                         <outlet property="profession" destination="8bq-FS-6Xt" id="zL2-mZ-Vqr"/>
                         <outlet property="years" destination="G5a-hC-cxO" id="IlG-c3-Q2u"/>
