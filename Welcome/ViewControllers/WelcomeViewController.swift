@@ -13,8 +13,10 @@ class WelcomeViewController: UIViewController {
     
     var userName: String!
     
+    private let user = User.getUser()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        welcomeLabel.text = "Welcome, \(userName ?? "")"
+        welcomeLabel.text = "Welcome, \(user.person.name)"
     }
 }
