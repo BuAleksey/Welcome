@@ -15,12 +15,7 @@ class AboutMeViewController: UIViewController {
     @IBOutlet var professionLabel: UILabel!
     @IBOutlet var yearsLabel: UILabel!
     
-    var name = ""
-    var placeOfWork = ""
-    var profession = ""
-    var years = 0
-    var definition = ""
-    var photo = ""
+    var user: User!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,22 +24,22 @@ class AboutMeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let definitionVC = segue.destination as? DefinitionViewController else { return }
-        definitionVC.definition = definition
+        definitionVC.definition = user.person.definition
     }
     
     private func setupScreen() {
         let red = UIColor.white
         
-        title = name
+        title = user.person.name
         
-        photoImage.image = UIImage(named: photo)
+        photoImage.image = UIImage(named: user.person.photo)
         photoImage.layer.cornerRadius = photoImage.frame.width / 2
         photoImage.layer.borderWidth = 2
         photoImage.layer.borderColor = red.cgColor
         
-        nameLabel.text = name
-        placeOfWorkLabel.text = placeOfWork
-        professionLabel.text = profession
-        yearsLabel.text = String(years)
+        nameLabel.text = user.person.name
+        placeOfWorkLabel.text = user.person.plaseOfWork
+        professionLabel.text = user.person.profession
+        yearsLabel.text = String(user.person.age)
     }
 }

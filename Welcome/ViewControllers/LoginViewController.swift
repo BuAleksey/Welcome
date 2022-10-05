@@ -12,9 +12,6 @@ class LoginViewController: UIViewController {
     @IBOutlet var userNameTF: UITextField!
     @IBOutlet var passwordTF: UITextField!
     
-    private let name = "User"
-    private let password = "Password"
-    
     private let user = User.getUser()
     
     override func viewDidLoad() {
@@ -31,17 +28,9 @@ class LoginViewController: UIViewController {
         viewControllers.forEach { viewController in
             if let welcomeVC = viewController as? WelcomeViewController {
                 welcomeVC.userName = user.person.name
-            } else if let navigationController =
-                        viewController as? UINavigationController {
-                guard let aboutMeVC =
-                        navigationController.topViewController
-                        as? AboutMeViewController else { return }
-                    aboutMeVC.name = user.person.name
-                    aboutMeVC.placeOfWork = user.person.plaseOfWork
-                    aboutMeVC.profession = user.person.profession
-                    aboutMeVC.years = user.person.yars
-                    aboutMeVC.definition = user.person.definition
-                    aboutMeVC.photo = user.person.photo
+            } else if let navigationController = viewController as? UINavigationController {
+                guard let aboutMeVC = navigationController.topViewController as? AboutMeViewController else { return }
+                aboutMeVC.user = user
             }
         }
     }
@@ -52,7 +41,7 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func logInTaped() {
-        guard userNameTF.text == name, passwordTF.text == password else {
+        guard userNameTF.text == user.login, passwordTF.text == user.password else {
             showAlert(
                 with: "Attantion",
                 and: "User name or passowor is wrong",
@@ -65,8 +54,8 @@ class LoginViewController: UIViewController {
     
     @IBAction func forgotInfo(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(with: "Remind", and: "Your user name is User")
-        : showAlert(with: "Remind", and: "Your password is Password")
+        ? showAlert(with: "Remind", and: "Your user name is \(user.login)")
+        : showAlert(with: "Remind", and: "Your password is \(user.password)")
     }
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
