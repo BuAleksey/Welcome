@@ -10,13 +10,18 @@ import UIKit
 class AboutMeViewController: UIViewController {
     
     @IBOutlet var photoImage: UIImageView!
-    @IBOutlet var name: UILabel!
-    @IBOutlet var placeOfWork: UILabel!
-    @IBOutlet var profession: UILabel!
-    @IBOutlet var years: UILabel!
+    @IBOutlet var nameLabel: UILabel!
+    @IBOutlet var placeOfWorkLabel: UILabel!
+    @IBOutlet var professionLabel: UILabel!
+    @IBOutlet var yearsLabel: UILabel!
     
-    private let user = User.getUser()
-
+    var name = ""
+    var placeOfWork = ""
+    var profession = ""
+    var years = 0
+    var definition = ""
+    var photo = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setupScreen()
@@ -24,16 +29,22 @@ class AboutMeViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let definitionVC = segue.destination as? DefinitionViewController else { return }
-        definitionVC.definition = user.person.definition
+        definitionVC.definition = definition
     }
     
     private func setupScreen() {
-        title = user.person.name
-        photoImage.image = UIImage(named: user.person.photo)
+        let red = UIColor.white
+        
+        title = name
+        
+        photoImage.image = UIImage(named: photo)
         photoImage.layer.cornerRadius = photoImage.frame.width / 2
-        name.text = user.person.name
-        placeOfWork.text = user.person.plaseOfWork
-        profession.text = user.person.profession
-        years.text = String(user.person.yars)
+        photoImage.layer.borderWidth = 2
+        photoImage.layer.borderColor = red.cgColor
+        
+        nameLabel.text = name
+        placeOfWorkLabel.text = placeOfWork
+        professionLabel.text = profession
+        yearsLabel.text = String(years)
     }
 }

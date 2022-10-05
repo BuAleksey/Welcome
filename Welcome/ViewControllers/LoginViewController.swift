@@ -14,6 +14,7 @@ class LoginViewController: UIViewController {
     
     private let name = "User"
     private let password = "Password"
+    
     private let user = User.getUser()
     
     override func viewDidLoad() {
@@ -23,8 +24,26 @@ class LoginViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else { return }
-        welcomeVC.userName = userNameTF.text
+        guard let tabBarVC = segue.destination as? UITabBarController else {
+            return
+        }
+        guard let viewControllers = tabBarVC.viewControllers else { return }
+        viewControllers.forEach { viewController in
+            if let welcomeVC = viewController as? WelcomeViewController {
+                welcomeVC.userName = user.person.name
+            } else if let navigationController =
+                        viewController as? UINavigationController {
+                guard let aboutMeVC =
+                        navigationController.topViewController
+                        as? AboutMeViewController else { return }
+                    aboutMeVC.name = user.person.name
+                    aboutMeVC.placeOfWork = user.person.plaseOfWork
+                    aboutMeVC.profession = user.person.profession
+                    aboutMeVC.years = user.person.yars
+                    aboutMeVC.definition = user.person.definition
+                    aboutMeVC.photo = user.person.photo
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -41,7 +60,7 @@ class LoginViewController: UIViewController {
             )
             return
         }
-        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
+        performSegue(withIdentifier: "showTabBarVC", sender: nil)
     }
     
     @IBAction func forgotInfo(_ sender: UIButton) {
@@ -57,8 +76,16 @@ class LoginViewController: UIViewController {
 }
 
 extension LoginViewController {
-    private func showAlert(with title: String, and message: String, textfield: UITextField? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    private func showAlert(
+        with title: String,
+        and message: String,
+        textfield: UITextField? = nil
+    ) {
+        let alert = UIAlertController(
+            title: title,
+            message: message,
+            preferredStyle: .alert
+        )
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
             textfield?.text = ""
         }
